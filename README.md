@@ -1,10 +1,18 @@
-# Hi, I'm Lin-SX 👋
+<div align="center">
 
-Welcome to my GitHub profile.
+# Lin-SX
 
-## ♟️ Chinese Chess · 中国象棋
+**你好，欢迎来到我的 GitHub 主页！**  
+*Welcome to my GitHub profile.*
 
-欢迎来我的 GitHub 主页下一盘中国象棋！这是一个由 GitHub Issues 和 Actions 驱动的共享棋局。
+</div>
+
+---
+
+## ♟️ 中国象棋 · Chinese Chess
+
+欢迎来我的 GitHub 主页下一盘中国象棋！这是一个由 GitHub Issues 和 Actions 驱动的共享棋局。  
+Welcome to my GitHub Xiangqi game! This is a shared chess game powered by GitHub Issues and GitHub Actions.
 
 <!-- XIANGQI:START -->
 棋盘由独立的 SVG 棋子图片组成；每次合法走棋后，GitHub Actions 会根据最新局面重新生成棋盘。
@@ -52,6 +60,10 @@ Welcome to my GitHub profile.
 <sub>棋子图片位于 assets/pieces/；棋盘和走法列表均由同一份 state/game.json 自动生成。多人共享同一棋局。</sub>
 <!-- XIANGQI:END -->
 
-## About
+---
 
-- GitHub: [@Lin-SX](https://github.com/Lin-SX)
+<div align="center">
+
+[GitHub](https://github.com/Lin-SX) · Made with ♟️
+
+</div>
