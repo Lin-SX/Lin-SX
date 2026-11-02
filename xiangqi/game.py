@@ -108,8 +108,8 @@ def render(s):
  groups={}
  for x,y,a,d in legal(b,s["turn"]): groups.setdefault((x,y),[]).append((a,d))
  side="红方" if s["turn"]=="r" else "黑方"
- lines=["<!-- XIANGQI:START -->","![Chinese chess board](assets/xiangqi.svg)",f"**当前回合：{side}** · 已走 {s['ply']} 手 · 合法走法 {sum(map(len,groups.values()))} 种","","### 点击走棋","点击对应棋子的目的地链接即可提交一步。系统会自动校验棋规；同一棋局所有访客共享进度。",""]
- if not groups: lines.append("当前没有合法走法，棋局结束。")
+ lines=["<!-- XIANGQI:START -->","![Chinese chess board](assets/xiangqi.svg)",f"**当前回合：{side}** · 已走 {s['ply']} 手 · 合法走法 {sum(map(len,groups.values()))} 种","","### 下一步怎么走？","和 marcizhu 的国际象棋示例一样，下面直接列出当前所有合法走法。**点击「目标位置」就会跳转到预填好棋步的 GitHub Issue 页面**；你只需提交 Issue，不用手动填写内容。","","| 棋子 / 起点 | 可选目标位置（点击即可提交） |","|:---:|:---|"]
+ if not groups: lines.append("| — | 当前没有合法走法，棋局结束。 |")
  for (x,y),dest in sorted(groups.items(),key=lambda z:(z[0][1],z[0][0])):
   p=b[y][x]; c,k=p; name=NAMES[k]
   if k=="K": name="帅" if c=="r" else "将"
@@ -120,10 +120,11 @@ def render(s):
   for a,d in dest:
    mv=f"{FILES[x]}{y}-{FILES[a]}{d}"
    from urllib.parse import quote
-   links.append(f"[{FILES[a]}{d}](https://github.com/Lin-SX/Lin-SX/issues/new?title={quote('Xiangqi move: '+mv)}&body={quote('xiangqi: '+mv)})")
-  lines.append(f"- **{name} {FILES[x]}{y}** → "+" · ".join(links))
+   url=f"https://github.com/Lin-SX/Lin-SX/issues/new?title={quote('Xiangqi move: '+mv)}&body={quote('xiangqi: '+mv)}"
+   links.append(f"[{FILES[a]}{d}]({url})")
+  lines.append(f"| **{name} {FILES[x]}{y}** | "+"、".join(links)+" |")
  lines += ["","### 最近走棋"]+[f"- {'红' if m['by']=='r' else '黑'}方：{m['from']} → {m['to']}" for m in s["moves"][-8:][::-1]] or ["- 尚未开始"]
- lines += ["","<sub>点击合法目的地会创建棋步 Issue；GitHub Actions 验证后刷新棋盘。手动编辑棋局状态可能导致棋局损坏。</sub>","<!-- XIANGQI:END -->"]
+ lines += ["","<sub>点击任一目标位置会创建棋步 Issue；GitHub Actions 验证棋规后自动刷新棋盘。多人共享同一棋局。</sub>","<!-- XIANGQI:END -->"]
  rp=ROOT/"README.md"; old=rp.read_text(encoding="utf-8"); start="<!-- XIANGQI:START -->"; end="<!-- XIANGQI:END -->"
  rp.write_text(old[:old.index(start)]+"\n".join(lines)+old[old.index(end)+len(end):],encoding="utf-8")
 def main():
