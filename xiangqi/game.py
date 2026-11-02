@@ -151,7 +151,7 @@ def render(s, stats=None):
  "Found a bug or have an idea? Feel free to [open an issue](https://github.com/Lin-SX/Lin-SX/issues/new)!",
  "<!-- XIANGQI:END -->"]
  rp=ROOT/"README.md"; old=rp.read_text(encoding="utf-8"); start="<!-- XIANGQI:START -->"; end="<!-- XIANGQI:END -->"
- rp.write_text(old[:old.index(start)]+"\\n".join(lines)+old[old.index(end)+len(end):],encoding="utf-8")
+ rp.write_text(old[:old.index(start)]+"\n".join(lines)+old[old.index(end)+len(end):],encoding="utf-8")
 def main():
  statefile=ROOT/"state/game.json"; statefile.parent.mkdir(exist_ok=True)
  s=json.loads(statefile.read_text(encoding="utf-8")) if statefile.exists() else initial()
