@@ -33,7 +33,7 @@ jobs:
             });
             const queue = data
               .filter(i => !i.pull_request && i.title.startsWith('Xiangqi move:'))
-              .map(i => ({number: i.number, body: i.body || ''}));
+              .map(i => ({number: i.number, body: i.body || '', player: i.user?.login || 'unknown'}));
             fs.writeFileSync('move-queue.json', JSON.stringify(queue));
       - name: Validate queued moves
         id: validate
@@ -47,8 +47,12 @@ jobs:
           path = Path('state/game.json')
           state = json.loads(path.read_text()) if path.exists() else initial()
           queue = json.loads(Path('move-queue.json').read_text())
+          stats_path = Path('stats/moves.json')
+          stats_path.parent.mkdir(exist_ok=True)
+          stats = json.loads(stats_path.read_text()) if stats_path.exists() else {}
           results = []
           changed = False
+          stats_changed = False
           for item in queue:
             match = re.fullmatch(r'\s*xiangqi:\s*([a-i][0-9])-([a-i][0-9])\s*', item['body'], re.I)
             accepted = False
@@ -57,7 +61,10 @@ jobs:
               a, b = match.group(1).lower(), match.group(2).lower()
               try:
                 apply(state, ('abcdefghi'.index(a[0]), int(a[1]), 'abcdefghi'.index(b[0]), int(b[1])))
-                accepted = changed = True
+                player = item.get('player', 'unknown')
+                state['moves'][-1]['player'] = player
+                stats[player] = stats.get(player, 0) + 1
+                accepted = changed = stats_changed = True
                 message = '合法走法已接受，棋盘已更新。'
               except ValueError as error:
                 message = str(error)
@@ -65,7 +72,8 @@ jobs:
           if changed:
             path.parent.mkdir(exist_ok=True)
             path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n')
-            render(state)
+            stats_path.write_text(json.dumps(stats, ensure_ascii=False, indent=2) + '\n')
+            render(state, stats)
           Path('move-results.json').write_text(json.dumps(results, ensure_ascii=False))
           print('accepted=' + str(changed).lower())
           PY
@@ -83,7 +91,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/game.json assets/xiangqi.svg README.md
+          git add state/game.json stats/moves.json README.md
           git diff --cached --quiet || (git commit -m "Update shared Xiangqi board" && git push)
       - name: Reply to move requests
         if: github.event_name == 'issues'

@@ -86,10 +86,8 @@ def apply(s,m):
  b[d][a],b[y][x]=p,None; s["turn"]="b" if c=="r" else "r"; s["ply"]+=1
  s["moves"].append({"from":FILES[x]+str(y),"to":FILES[a]+str(d),"piece":p,"captured":cap,"by":c})
  return s
-def render(s):
- b=s["board"]
- # Render the board as a Markdown grid of independent SVG piece images.
- # GitHub refreshes this generated table whenever the Actions workflow applies a move.
+def render(s, stats=None):
+ b=s["board"]; stats=stats or {}
  def piece_name(p):
   c,k=p; name=NAMES[k]
   if k=="K": name="帅" if c=="r" else "将"
@@ -98,45 +96,66 @@ def render(s):
   if k=="P": name="兵" if c=="r" else "卒"
   return ("红" if c=="r" else "黑")+name
  lines=["<!-- XIANGQI:START -->",
- "棋盘由独立的 SVG 棋子图片组成；每次合法走棋后，GitHub Actions 会根据最新局面重新生成棋盘。",
- "",
  "| 坐标 | A | B | C | D | E | F | G | H | I |",
  "|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|"]
  for y,row in enumerate(b):
   cells=[]
   for p in row:
    if p:
-    alt=piece_name(p)
-    cells.append(f'<img src="assets/pieces/{p}.svg" width="48" height="48" alt="{alt}">')
+    cells.append(f'<img src="assets/pieces/{p}.svg" width="48" height="48" alt="{piece_name(p)}">')
    else:
     cells.append('<img src="assets/pieces/blank.svg" width="48" height="48" alt="空">')
   lines.append("| **"+str(y)+"** | "+" | ".join(cells)+" |")
  lines += ["",
- f"**当前回合：{'红方' if s['turn']=='r' else '黑方'}** · 已走 {s['ply']} 手",
+ f"**当前回合：{'🔴 红方' if s['turn']=='r' else '⚫ 黑方'}**　·　**已走 {s['ply']} 手**",
  "",
- "### 下一步怎么走？",
- "点击下方任一目标位置，即可跳转到预填好棋步的 GitHub Issue 页面；提交 Issue 后，Actions 会验证棋规并更新上方棋盘。",
+ "### 🎯 下一步怎么走？",
+ "点击下方任一目标位置，打开预填好的 GitHub Issue 并提交即可。系统会自动检查棋规、更新棋盘和走棋记录。",
  "",
- "| 棋子 / 起点 | 可选目标位置（点击即可提交） |",
+ "| 棋子 / 起点 | 可选目标位置 |",
  "|:---:|:---|"]
  groups={}
  for x,y,a,d in legal(b,s["turn"]): groups.setdefault((x,y),[]).append((a,d))
  if not groups: lines.append("| — | 当前没有合法走法，棋局结束。 |")
  for (x,y),dest in sorted(groups.items(),key=lambda z:(z[0][1],z[0][0])):
-  p=b[y][x]; name=piece_name(p)[1:]
-  links=[]
+  name=piece_name(b[y][x])[1:]; links=[]
   for a,d in dest:
    mv=f"{FILES[x]}{y}-{FILES[a]}{d}"
    from urllib.parse import quote
    url=f"https://github.com/Lin-SX/Lin-SX/issues/new?title={quote('Xiangqi move: '+mv)}&body={quote('xiangqi: '+mv)}"
    links.append(f"[{FILES[a]}{d}]({url})")
-  lines.append(f"| **{name} {FILES[x]}{y}** | "+"、".join(links)+" |")
- lines += ["","### 最近走棋"]+[f"- {'红' if m['by']=='r' else '黑'}方：{m['from']} → {m['to']}" for m in s["moves"][-8:][::-1]] or ["- 尚未开始"]
- lines += ["","<sub>棋子图片位于 assets/pieces/；棋盘和走法列表均由同一份 state/game.json 自动生成。多人共享同一棋局。</sub>","<!-- XIANGQI:END -->"]
+  lines.append(f"| **{name} {FILES[x]}{y}** | "+" · ".join(links)+" |")
+ lines += ["","<details>","<summary>📜 最近 5 步 · Last 5 moves in this game</summary>",""]
+ recent=s["moves"][-5:][::-1]
+ if recent:
+  for m in recent:
+   player=m.get("player","玩家"); side="红方" if m["by"]=="r" else "黑方"
+   lines.append(f"- **{side}** · {m['from']} → {m['to']} · @{player}")
+ else:
+  lines.append("- 暂无走棋记录 · No moves yet")
+ lines += ["","</details>","","<details>","<summary>🏆 最活跃玩家 Top 10 · Most active players</summary>","",
+ "| 排名 | 玩家 Player | 有效走棋 Moves |",
+ "|:---:|:---|---:|"]
+ ranking=sorted(stats.items(),key=lambda item:(-item[1],item[0].lower()))[:10]
+ if ranking:
+  for i,(player,count) in enumerate(ranking,1):
+   lines.append(f"| {i} | [@{player}](https://github.com/{player}) | {count} |")
+ else:
+  lines.append("| — | 还没有统计数据 · No stats yet | 0 |")
+ lines += ["","</details>","","### ⚙️ How it works · 工作原理",
+ "1. **选择走法：** 点击棋盘下方的目标位置，创建预填好内容的 GitHub Issue。",
+ "2. **自动判定：** GitHub Actions 运行 Python 棋规引擎，检查这一步是否合法。",
+ "3. **更新棋局：** 合法走法会写入共享棋局，自动刷新棋盘、最近走棋和玩家统计。",
+ "",
+ "发现问题或有改进建议？欢迎 [提交 Issue](https://github.com/Lin-SX/Lin-SX/issues/new)。",
+ "Found a bug or have an idea? Feel free to [open an issue](https://github.com/Lin-SX/Lin-SX/issues/new)!",
+ "<!-- XIANGQI:END -->"]
  rp=ROOT/"README.md"; old=rp.read_text(encoding="utf-8"); start="<!-- XIANGQI:START -->"; end="<!-- XIANGQI:END -->"
  rp.write_text(old[:old.index(start)]+"\n".join(lines)+old[old.index(end)+len(end):],encoding="utf-8")
 def main():
  statefile=ROOT/"state/game.json"; statefile.parent.mkdir(exist_ok=True)
  s=json.loads(statefile.read_text(encoding="utf-8")) if statefile.exists() else initial()
- render(s)
+ statsfile=ROOT/"stats/moves.json"
+ stats=json.loads(statsfile.read_text(encoding="utf-8")) if statsfile.exists() else {}
+ render(s,stats)
 if __name__=="__main__": main()
