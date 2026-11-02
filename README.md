@@ -15,8 +15,8 @@
 <img src="assets/xiangqi-board.svg" width="720" alt="当前中国象棋棋盘 · Current Xiangqi board">
 </div>
 
-### 当前回合：⚫ 黑方　·　已走 1 手
-<sub><i>Turn: Black · 1 ply played.</i></sub>
+### 当前回合：🔴 红方　·　已走 2 手
+<sub><i>Turn: Red · 2 ply played.</i></sub>
 
 ### 🎯 选择下一步
 <sub><i>Choose the next move</i></sub>
@@ -26,28 +26,29 @@
 
 | 棋子 / 起点<br><sub>Piece / From</sub> | 可选目标位置<br><sub>Legal destinations</sub> |
 |:---:|:---|
-| **车 a0**<br><sub>Rook</sub> | [a1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a0-a1&body=xiangqi%3A%20a0-a1) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a0-a2&body=xiangqi%3A%20a0-a2) |
-| **马 b0**<br><sub>Horse</sub> | [c2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b0-c2&body=xiangqi%3A%20b0-c2) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b0-a2&body=xiangqi%3A%20b0-a2) |
-| **象 c0**<br><sub>Elephant</sub> | [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c0-e2&body=xiangqi%3A%20c0-e2) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c0-a2&body=xiangqi%3A%20c0-a2) |
-| **士 d0**<br><sub>Advisor</sub> | [e1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20d0-e1&body=xiangqi%3A%20d0-e1) |
-| **将 e0**<br><sub>General</sub> | [e1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20e0-e1&body=xiangqi%3A%20e0-e1) |
-| **士 f0**<br><sub>Advisor</sub> | [e1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20f0-e1&body=xiangqi%3A%20f0-e1) |
-| **象 g0**<br><sub>Elephant</sub> | [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g0-i2&body=xiangqi%3A%20g0-i2) · [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g0-e2&body=xiangqi%3A%20g0-e2) |
-| **马 h0**<br><sub>Horse</sub> | [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h0-i2&body=xiangqi%3A%20h0-i2) · [g2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h0-g2&body=xiangqi%3A%20h0-g2) |
-| **车 i0**<br><sub>Rook</sub> | [i1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i0-i1&body=xiangqi%3A%20i0-i1) · [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i0-i2&body=xiangqi%3A%20i0-i2) |
-| **炮 b2**<br><sub>Cannon</sub> | [c2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-c2&body=xiangqi%3A%20b2-c2) · [d2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-d2&body=xiangqi%3A%20b2-d2) · [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-e2&body=xiangqi%3A%20b2-e2) · [f2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-f2&body=xiangqi%3A%20b2-f2) · [g2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-g2&body=xiangqi%3A%20b2-g2) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-a2&body=xiangqi%3A%20b2-a2) · [b3](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b3&body=xiangqi%3A%20b2-b3) · [b4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b4&body=xiangqi%3A%20b2-b4) · [b5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b5&body=xiangqi%3A%20b2-b5) · [b6](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b6&body=xiangqi%3A%20b2-b6) · [b9](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b9&body=xiangqi%3A%20b2-b9) · [b1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b1&body=xiangqi%3A%20b2-b1) |
-| **炮 h2**<br><sub>Cannon</sub> | [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-i2&body=xiangqi%3A%20h2-i2) · [g2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-g2&body=xiangqi%3A%20h2-g2) · [f2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-f2&body=xiangqi%3A%20h2-f2) · [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-e2&body=xiangqi%3A%20h2-e2) · [d2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-d2&body=xiangqi%3A%20h2-d2) · [c2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-c2&body=xiangqi%3A%20h2-c2) · [h3](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h3&body=xiangqi%3A%20h2-h3) · [h4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h4&body=xiangqi%3A%20h2-h4) · [h5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h5&body=xiangqi%3A%20h2-h5) · [h6](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h6&body=xiangqi%3A%20h2-h6) · [h9](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h9&body=xiangqi%3A%20h2-h9) · [h1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h1&body=xiangqi%3A%20h2-h1) |
-| **卒 a3**<br><sub>Pawn</sub> | [a4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a3-a4&body=xiangqi%3A%20a3-a4) |
-| **卒 c3**<br><sub>Pawn</sub> | [c4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c3-c4&body=xiangqi%3A%20c3-c4) |
-| **卒 e3**<br><sub>Pawn</sub> | [e4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20e3-e4&body=xiangqi%3A%20e3-e4) |
-| **卒 g3**<br><sub>Pawn</sub> | [g4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g3-g4&body=xiangqi%3A%20g3-g4) |
-| **卒 i3**<br><sub>Pawn</sub> | [i4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i3-i4&body=xiangqi%3A%20i3-i4) |
+| **兵 a5**<br><sub>Pawn</sub> | [a4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a5-a4&body=xiangqi%3A%20a5-a4) |
+| **兵 c6**<br><sub>Pawn</sub> | [c5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c6-c5&body=xiangqi%3A%20c6-c5) |
+| **兵 e6**<br><sub>Pawn</sub> | [e5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20e6-e5&body=xiangqi%3A%20e6-e5) |
+| **兵 g6**<br><sub>Pawn</sub> | [g5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g6-g5&body=xiangqi%3A%20g6-g5) |
+| **兵 i6**<br><sub>Pawn</sub> | [i5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i6-i5&body=xiangqi%3A%20i6-i5) |
+| **炮 b7**<br><sub>Cannon</sub> | [c7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-c7&body=xiangqi%3A%20b7-c7) · [d7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-d7&body=xiangqi%3A%20b7-d7) · [e7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-e7&body=xiangqi%3A%20b7-e7) · [f7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-f7&body=xiangqi%3A%20b7-f7) · [g7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-g7&body=xiangqi%3A%20b7-g7) · [a7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-a7&body=xiangqi%3A%20b7-a7) · [b8](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-b8&body=xiangqi%3A%20b7-b8) · [b6](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-b6&body=xiangqi%3A%20b7-b6) · [b5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-b5&body=xiangqi%3A%20b7-b5) · [b4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-b4&body=xiangqi%3A%20b7-b4) · [b3](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-b3&body=xiangqi%3A%20b7-b3) · [b2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-b2&body=xiangqi%3A%20b7-b2) · [b1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b7-b1&body=xiangqi%3A%20b7-b1) |
+| **炮 h7**<br><sub>Cannon</sub> | [i7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-i7&body=xiangqi%3A%20h7-i7) · [g7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-g7&body=xiangqi%3A%20h7-g7) · [f7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-f7&body=xiangqi%3A%20h7-f7) · [e7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-e7&body=xiangqi%3A%20h7-e7) · [d7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-d7&body=xiangqi%3A%20h7-d7) · [c7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-c7&body=xiangqi%3A%20h7-c7) · [h8](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-h8&body=xiangqi%3A%20h7-h8) · [h6](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-h6&body=xiangqi%3A%20h7-h6) · [h5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-h5&body=xiangqi%3A%20h7-h5) · [h4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-h4&body=xiangqi%3A%20h7-h4) · [h3](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-h3&body=xiangqi%3A%20h7-h3) · [h0](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h7-h0&body=xiangqi%3A%20h7-h0) |
+| **车 a9**<br><sub>Rook</sub> | [a8](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a9-a8&body=xiangqi%3A%20a9-a8) · [a7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a9-a7&body=xiangqi%3A%20a9-a7) · [a6](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a9-a6&body=xiangqi%3A%20a9-a6) |
+| **马 b9**<br><sub>Horse</sub> | [c7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b9-c7&body=xiangqi%3A%20b9-c7) · [a7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b9-a7&body=xiangqi%3A%20b9-a7) |
+| **相 c9**<br><sub>Elephant</sub> | [e7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c9-e7&body=xiangqi%3A%20c9-e7) · [a7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c9-a7&body=xiangqi%3A%20c9-a7) |
+| **仕 d9**<br><sub>Advisor</sub> | [e8](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20d9-e8&body=xiangqi%3A%20d9-e8) |
+| **帅 e9**<br><sub>General</sub> | [e8](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20e9-e8&body=xiangqi%3A%20e9-e8) |
+| **仕 f9**<br><sub>Advisor</sub> | [e8](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20f9-e8&body=xiangqi%3A%20f9-e8) |
+| **相 g9**<br><sub>Elephant</sub> | [i7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g9-i7&body=xiangqi%3A%20g9-i7) · [e7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g9-e7&body=xiangqi%3A%20g9-e7) |
+| **马 h9**<br><sub>Horse</sub> | [i7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h9-i7&body=xiangqi%3A%20h9-i7) · [g7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h9-g7&body=xiangqi%3A%20h9-g7) |
+| **车 i9**<br><sub>Rook</sub> | [i8](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i9-i8&body=xiangqi%3A%20i9-i8) · [i7](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i9-i7&body=xiangqi%3A%20i9-i7) |
 
 <details>
 <summary>📜 最近 5 步</summary>
 
 <sub><i>Last five moves in this game</i></sub>
 
+- **黑方** · b2 → e2 · @Shengxiang-Lin<br><sub><i>Black · b2 → e2 · @Shengxiang-Lin</i></sub>
 - **红方** · a6 → a5 · 历史棋步<br><sub><i>Red · a6 → a5 · recorded move</i></sub>
 
 </details>
@@ -59,7 +60,7 @@
 
 | 排名<br><sub>Rank</sub> | 玩家<br><sub>Player</sub> | 有效走棋<br><sub>Moves</sub> |
 |:---:|:---|---:|
-| — | 还没有统计数据<br><sub>No stats yet</sub> | 0 |
+| 1 | [@Shengxiang-Lin](https://github.com/Shengxiang-Lin) | 1 |
 
 </details>
 
