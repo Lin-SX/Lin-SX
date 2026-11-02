@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+<defs>
+ <radialGradient id="wood" cx="35%" cy="28%" r="75%"><stop offset="0" stop-color="#fff9e9"/><stop offset="1" stop-color="#e6c98e"/></radialGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-color="#4a321d" flood-opacity=".35"/></filter>
+</defs>
+<circle cx="28" cy="28" r="25" fill="#8b5a2b" opacity=".22"/>
+<circle cx="28" cy="27" r="24" fill="url(#wood)" stroke="#252525" stroke-width="2.8" filter="url(#shadow)"/>
+<circle cx="28" cy="27" r="19.5" fill="none" stroke="#252525" stroke-width="1.1" opacity=".8"/>
+<text x="28" y="36" text-anchor="middle" font-family="Noto Serif CJK SC, Songti SC, SimSun, serif" font-size="27" font-weight="700" fill="#252525">卒</text>
+</svg>
