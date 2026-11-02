@@ -39,7 +39,7 @@ jobs:
             a,b=m.group(1).lower(),m.group(2).lower()
             try:
               apply(s,('abcdefghi'.index(a[0]),int(a[1]),'abcdefghi'.index(b[0]),int(b[1])))
-              path.parent.mkdir(exist_ok=True); path.write_text(json.dumps(s,ensure_ascii=False,indent=2)+'\\n')
+              path.parent.mkdir(exist_ok=True); path.write_text(json.dumps(s,ensure_ascii=False,indent=2)+'\n')
               render(s); ok=True; message='合法走法已接受，棋盘已更新。'
             except ValueError as e: message=str(e)
           Path('move-result.json').write_text(json.dumps({'accepted':ok,'message':message},ensure_ascii=False))
@@ -50,9 +50,8 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         run: |
           mkdir -p state
-          mkdir -p state
           if [ ! -f state/game.json ]; then
-            python -c "import sys,json;sys.path.insert(0,'xiangqi');from game import initial;open('state/game.json','w').write(json.dumps(initial(),ensure_ascii=False,indent=2)+'\\n')"
+            python -c "import sys,json;sys.path.insert(0,'xiangqi');from game import initial;open('state/game.json','w').write(json.dumps(initial(),ensure_ascii=False,indent=2)+'\n')"
           fi
           python xiangqi/game.py
       - name: Commit board
