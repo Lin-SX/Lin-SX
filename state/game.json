@@ -56,7 +56,7 @@
       null
     ],
     [
-      null,
+      "rP",
       null,
       null,
       null,
@@ -67,7 +67,7 @@
       null
     ],
     [
-      "rP",
+      null,
       null,
       "rP",
       null,
@@ -111,7 +111,15 @@
       "rR"
     ]
   ],
-  "turn": "r",
-  "moves": [],
-  "ply": 0
+  "turn": "b",
+  "moves": [
+    {
+      "from": "a6",
+      "to": "a5",
+      "piece": "rP",
+      "captured": null,
+      "by": "r"
+    }
+  ],
+  "ply": 1
 }

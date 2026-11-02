@@ -51,8 +51,8 @@
 <text x="550" y="321" text-anchor="middle" font-size="31" font-weight="700" fill="#252525">卒</text>
 <circle cx="710" cy="310" r="29" fill="#f9edcf" stroke="#252525" stroke-width="4"/>
 <text x="710" y="321" text-anchor="middle" font-size="31" font-weight="700" fill="#252525">卒</text>
-<circle cx="70" cy="550" r="29" fill="#f9edcf" stroke="#b32025" stroke-width="4"/>
-<text x="70" y="561" text-anchor="middle" font-size="31" font-weight="700" fill="#b32025">兵</text>
+<circle cx="70" cy="470" r="29" fill="#f9edcf" stroke="#b32025" stroke-width="4"/>
+<text x="70" y="481" text-anchor="middle" font-size="31" font-weight="700" fill="#b32025">兵</text>
 <circle cx="230" cy="550" r="29" fill="#f9edcf" stroke="#b32025" stroke-width="4"/>
 <text x="230" y="561" text-anchor="middle" font-size="31" font-weight="700" fill="#b32025">兵</text>
 <circle cx="390" cy="550" r="29" fill="#f9edcf" stroke="#b32025" stroke-width="4"/>
