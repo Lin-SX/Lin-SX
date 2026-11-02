@@ -50,7 +50,10 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         run: |
           mkdir -p state
-          python -c "import sys,json;sys.path.insert(0,'xiangqi');from game import initial;open('state/game.json','w').write(json.dumps(initial(),ensure_ascii=False,indent=2)+'\\n')"
+          mkdir -p state
+          if [ ! -f state/game.json ]; then
+            python -c "import sys,json;sys.path.insert(0,'xiangqi');from game import initial;open('state/game.json','w').write(json.dumps(initial(),ensure_ascii=False,indent=2)+'\\n')"
+          fi
           python xiangqi/game.py
       - name: Commit board
         if: steps.validate.outputs.accepted == 'true' || github.event_name == 'workflow_dispatch'
