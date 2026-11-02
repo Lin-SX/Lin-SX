@@ -45,7 +45,7 @@
       "bP"
     ],
     [
-      null,
+      "rP",
       null,
       null,
       null,
@@ -56,7 +56,7 @@
       null
     ],
     [
-      "rP",
+      null,
       null,
       null,
       null,
@@ -111,7 +111,7 @@
       "rR"
     ]
   ],
-  "turn": "r",
+  "turn": "b",
   "moves": [
     {
       "from": "a6",
@@ -127,7 +127,15 @@
       "captured": null,
       "by": "b",
       "player": "Shengxiang-Lin"
+    },
+    {
+      "from": "a5",
+      "to": "a4",
+      "piece": "rP",
+      "captured": null,
+      "by": "r",
+      "player": "Lin-SX"
     }
   ],
-  "ply": 2
+  "ply": 3
 }
