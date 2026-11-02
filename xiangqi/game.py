@@ -111,8 +111,7 @@ def render(s):
    else:
     cells.append('<img src="assets/pieces/blank.svg" width="48" height="48" alt="空">')
   lines.append("| **"+str(y)+"** | "+" | ".join(cells)+" |")
- lines += ["| **"+str(s["ply"])+" 手** |"+"|".join(["　"]*9)+"|",
- "",
+ lines += ["",
  f"**当前回合：{'红方' if s['turn']=='r' else '黑方'}** · 已走 {s['ply']} 手",
  "",
  "### 下一步怎么走？",
