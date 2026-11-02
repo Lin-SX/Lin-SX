@@ -1,80 +1,77 @@
 <div align="center">
 
-# Lin-SX
+# ♟️ 中国象棋
+<sub><i>Chinese Chess · Xiangqi</i></sub>
 
-**你好，欢迎来到我的 GitHub 主页！**  
-*Welcome to my GitHub profile.*
+在 GitHub 上和访客一起下一盘中国象棋。每一步由 Issue 提交，由 Actions 自动判定棋规并更新共享棋局。  
+<sub><i>Play a shared game of Xiangqi with GitHub visitors. Every move is submitted through an Issue and validated automatically by GitHub Actions.</i></sub>
 
 </div>
 
 ---
 
-## ♟️ 中国象棋 · Chinese Chess
-
-欢迎来我的 GitHub 主页下一盘中国象棋！这是一个由 GitHub Issues 和 Actions 驱动的共享棋局。  
-Welcome to my GitHub Xiangqi game! This is a shared chess game powered by GitHub Issues and GitHub Actions.
-
 <!-- XIANGQI:START -->
-| 坐标 | A | B | C | D | E | F | G | H | I |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **0** | <img src="assets/pieces/bR.svg" width="48" height="48" alt="黑车"> | <img src="assets/pieces/bH.svg" width="48" height="48" alt="黑马"> | <img src="assets/pieces/bE.svg" width="48" height="48" alt="黑象"> | <img src="assets/pieces/bA.svg" width="48" height="48" alt="黑士"> | <img src="assets/pieces/bK.svg" width="48" height="48" alt="黑将"> | <img src="assets/pieces/bA.svg" width="48" height="48" alt="黑士"> | <img src="assets/pieces/bE.svg" width="48" height="48" alt="黑象"> | <img src="assets/pieces/bH.svg" width="48" height="48" alt="黑马"> | <img src="assets/pieces/bR.svg" width="48" height="48" alt="黑车"> |
-| **1** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
-| **2** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bC.svg" width="48" height="48" alt="黑炮"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bC.svg" width="48" height="48" alt="黑炮"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
-| **3** | <img src="assets/pieces/bP.svg" width="48" height="48" alt="黑卒"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bP.svg" width="48" height="48" alt="黑卒"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bP.svg" width="48" height="48" alt="黑卒"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bP.svg" width="48" height="48" alt="黑卒"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bP.svg" width="48" height="48" alt="黑卒"> |
-| **4** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
-| **5** | <img src="assets/pieces/rP.svg" width="48" height="48" alt="红兵"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
-| **6** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rP.svg" width="48" height="48" alt="红兵"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rP.svg" width="48" height="48" alt="红兵"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rP.svg" width="48" height="48" alt="红兵"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rP.svg" width="48" height="48" alt="红兵"> |
-| **7** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rC.svg" width="48" height="48" alt="红炮"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rC.svg" width="48" height="48" alt="红炮"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
-| **8** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
-| **9** | <img src="assets/pieces/rR.svg" width="48" height="48" alt="红车"> | <img src="assets/pieces/rH.svg" width="48" height="48" alt="红马"> | <img src="assets/pieces/rE.svg" width="48" height="48" alt="红相"> | <img src="assets/pieces/rA.svg" width="48" height="48" alt="红仕"> | <img src="assets/pieces/rK.svg" width="48" height="48" alt="红帅"> | <img src="assets/pieces/rA.svg" width="48" height="48" alt="红仕"> | <img src="assets/pieces/rE.svg" width="48" height="48" alt="红相"> | <img src="assets/pieces/rH.svg" width="48" height="48" alt="红马"> | <img src="assets/pieces/rR.svg" width="48" height="48" alt="红车"> |
+<div align="center">
+<img src="assets/xiangqi-board.svg" width="720" alt="当前中国象棋棋盘 · Current Xiangqi board">
+</div>
 
-**当前回合：⚫ 黑方**　·　**已走 1 手**
+### 当前回合：⚫ 黑方　·　已走 1 手
+<sub><i>Turn: Black · 1 ply played.</i></sub>
 
-### 🎯 下一步怎么走？
-点击下方任一目标位置，打开预填好的 GitHub Issue 并提交即可。系统会自动检查棋规、更新棋盘和走棋记录。
+### 🎯 选择下一步
+<sub><i>Choose the next move</i></sub>
 
-| 棋子 / 起点 | 可选目标位置 |
+点击任一目标坐标，会打开一个已经填好走法的 GitHub Issue；提交后，Actions 会自动验证棋规并刷新棋盘。
+<br><sub><i>Click any destination to open a pre-filled GitHub Issue. After submission, Actions validates the move and refreshes the shared board automatically.</i></sub>
+
+| 棋子 / 起点<br><sub>Piece / From</sub> | 可选目标位置<br><sub>Legal destinations</sub> |
 |:---:|:---|
-| **车 a0** | [a1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a0-a1&body=xiangqi%3A%20a0-a1) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a0-a2&body=xiangqi%3A%20a0-a2) |
-| **马 b0** | [c2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b0-c2&body=xiangqi%3A%20b0-c2) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b0-a2&body=xiangqi%3A%20b0-a2) |
-| **象 c0** | [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c0-e2&body=xiangqi%3A%20c0-e2) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c0-a2&body=xiangqi%3A%20c0-a2) |
-| **士 d0** | [e1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20d0-e1&body=xiangqi%3A%20d0-e1) |
-| **将 e0** | [e1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20e0-e1&body=xiangqi%3A%20e0-e1) |
-| **士 f0** | [e1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20f0-e1&body=xiangqi%3A%20f0-e1) |
-| **象 g0** | [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g0-i2&body=xiangqi%3A%20g0-i2) · [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g0-e2&body=xiangqi%3A%20g0-e2) |
-| **马 h0** | [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h0-i2&body=xiangqi%3A%20h0-i2) · [g2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h0-g2&body=xiangqi%3A%20h0-g2) |
-| **车 i0** | [i1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i0-i1&body=xiangqi%3A%20i0-i1) · [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i0-i2&body=xiangqi%3A%20i0-i2) |
-| **炮 b2** | [c2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-c2&body=xiangqi%3A%20b2-c2) · [d2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-d2&body=xiangqi%3A%20b2-d2) · [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-e2&body=xiangqi%3A%20b2-e2) · [f2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-f2&body=xiangqi%3A%20b2-f2) · [g2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-g2&body=xiangqi%3A%20b2-g2) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-a2&body=xiangqi%3A%20b2-a2) · [b3](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b3&body=xiangqi%3A%20b2-b3) · [b4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b4&body=xiangqi%3A%20b2-b4) · [b5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b5&body=xiangqi%3A%20b2-b5) · [b6](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b6&body=xiangqi%3A%20b2-b6) · [b9](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b9&body=xiangqi%3A%20b2-b9) · [b1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b1&body=xiangqi%3A%20b2-b1) |
-| **炮 h2** | [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-i2&body=xiangqi%3A%20h2-i2) · [g2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-g2&body=xiangqi%3A%20h2-g2) · [f2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-f2&body=xiangqi%3A%20h2-f2) · [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-e2&body=xiangqi%3A%20h2-e2) · [d2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-d2&body=xiangqi%3A%20h2-d2) · [c2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-c2&body=xiangqi%3A%20h2-c2) · [h3](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h3&body=xiangqi%3A%20h2-h3) · [h4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h4&body=xiangqi%3A%20h2-h4) · [h5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h5&body=xiangqi%3A%20h2-h5) · [h6](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h6&body=xiangqi%3A%20h2-h6) · [h9](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h9&body=xiangqi%3A%20h2-h9) · [h1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h1&body=xiangqi%3A%20h2-h1) |
-| **卒 a3** | [a4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a3-a4&body=xiangqi%3A%20a3-a4) |
-| **卒 c3** | [c4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c3-c4&body=xiangqi%3A%20c3-c4) |
-| **卒 e3** | [e4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20e3-e4&body=xiangqi%3A%20e3-e4) |
-| **卒 g3** | [g4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g3-g4&body=xiangqi%3A%20g3-g4) |
-| **卒 i3** | [i4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i3-i4&body=xiangqi%3A%20i3-i4) |
+| **车 a0**<br><sub>Rook</sub> | [a1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a0-a1&body=xiangqi%3A%20a0-a1) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a0-a2&body=xiangqi%3A%20a0-a2) |
+| **马 b0**<br><sub>Horse</sub> | [c2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b0-c2&body=xiangqi%3A%20b0-c2) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b0-a2&body=xiangqi%3A%20b0-a2) |
+| **象 c0**<br><sub>Elephant</sub> | [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c0-e2&body=xiangqi%3A%20c0-e2) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c0-a2&body=xiangqi%3A%20c0-a2) |
+| **士 d0**<br><sub>Advisor</sub> | [e1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20d0-e1&body=xiangqi%3A%20d0-e1) |
+| **将 e0**<br><sub>General</sub> | [e1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20e0-e1&body=xiangqi%3A%20e0-e1) |
+| **士 f0**<br><sub>Advisor</sub> | [e1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20f0-e1&body=xiangqi%3A%20f0-e1) |
+| **象 g0**<br><sub>Elephant</sub> | [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g0-i2&body=xiangqi%3A%20g0-i2) · [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g0-e2&body=xiangqi%3A%20g0-e2) |
+| **马 h0**<br><sub>Horse</sub> | [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h0-i2&body=xiangqi%3A%20h0-i2) · [g2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h0-g2&body=xiangqi%3A%20h0-g2) |
+| **车 i0**<br><sub>Rook</sub> | [i1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i0-i1&body=xiangqi%3A%20i0-i1) · [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i0-i2&body=xiangqi%3A%20i0-i2) |
+| **炮 b2**<br><sub>Cannon</sub> | [c2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-c2&body=xiangqi%3A%20b2-c2) · [d2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-d2&body=xiangqi%3A%20b2-d2) · [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-e2&body=xiangqi%3A%20b2-e2) · [f2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-f2&body=xiangqi%3A%20b2-f2) · [g2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-g2&body=xiangqi%3A%20b2-g2) · [a2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-a2&body=xiangqi%3A%20b2-a2) · [b3](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b3&body=xiangqi%3A%20b2-b3) · [b4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b4&body=xiangqi%3A%20b2-b4) · [b5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b5&body=xiangqi%3A%20b2-b5) · [b6](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b6&body=xiangqi%3A%20b2-b6) · [b9](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b9&body=xiangqi%3A%20b2-b9) · [b1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20b2-b1&body=xiangqi%3A%20b2-b1) |
+| **炮 h2**<br><sub>Cannon</sub> | [i2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-i2&body=xiangqi%3A%20h2-i2) · [g2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-g2&body=xiangqi%3A%20h2-g2) · [f2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-f2&body=xiangqi%3A%20h2-f2) · [e2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-e2&body=xiangqi%3A%20h2-e2) · [d2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-d2&body=xiangqi%3A%20h2-d2) · [c2](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-c2&body=xiangqi%3A%20h2-c2) · [h3](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h3&body=xiangqi%3A%20h2-h3) · [h4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h4&body=xiangqi%3A%20h2-h4) · [h5](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h5&body=xiangqi%3A%20h2-h5) · [h6](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h6&body=xiangqi%3A%20h2-h6) · [h9](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h9&body=xiangqi%3A%20h2-h9) · [h1](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20h2-h1&body=xiangqi%3A%20h2-h1) |
+| **卒 a3**<br><sub>Pawn</sub> | [a4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20a3-a4&body=xiangqi%3A%20a3-a4) |
+| **卒 c3**<br><sub>Pawn</sub> | [c4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20c3-c4&body=xiangqi%3A%20c3-c4) |
+| **卒 e3**<br><sub>Pawn</sub> | [e4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20e3-e4&body=xiangqi%3A%20e3-e4) |
+| **卒 g3**<br><sub>Pawn</sub> | [g4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20g3-g4&body=xiangqi%3A%20g3-g4) |
+| **卒 i3**<br><sub>Pawn</sub> | [i4](https://github.com/Lin-SX/Lin-SX/issues/new?title=Xiangqi%20move%3A%20i3-i4&body=xiangqi%3A%20i3-i4) |
 
 <details>
-<summary>📜 最近 5 步 · Last 5 moves in this game</summary>
+<summary>📜 最近 5 步</summary>
 
-- **红方** · a6 → a5 · @玩家
+<sub><i>Last five moves in this game</i></sub>
+
+- **红方** · a6 → a5 · 历史棋步<br><sub><i>Red · a6 → a5 · recorded move</i></sub>
 
 </details>
 
 <details>
-<summary>🏆 最活跃玩家 Top 10 · Most active players</summary>
+<summary>🏆 最活跃玩家 Top 10</summary>
 
-| 排名 | 玩家 Player | 有效走棋 Moves |
+<sub><i>Top 10 most active players</i></sub>
+
+| 排名<br><sub>Rank</sub> | 玩家<br><sub>Player</sub> | 有效走棋<br><sub>Moves</sub> |
 |:---:|:---|---:|
-| — | 还没有统计数据 · No stats yet | 0 |
+| — | 还没有统计数据<br><sub>No stats yet</sub> | 0 |
 
 </details>
 
-### ⚙️ How it works · 工作原理
-1. **选择走法：** 点击棋盘下方的目标位置，创建预填好内容的 GitHub Issue。
-2. **自动判定：** GitHub Actions 运行 Python 棋规引擎，检查这一步是否合法。
-3. **更新棋局：** 合法走法会写入共享棋局，自动刷新棋盘、最近走棋和玩家统计。
+### ⚙️ 工作原理
+<sub><i>How it works</i></sub>
+
+1. **选择走法：** 点击棋盘下方的目标坐标，创建预填好的 GitHub Issue。<br><sub><i>Choose a move: click a destination below the board to create a pre-filled GitHub Issue.</i></sub>
+2. **自动判定：** GitHub Actions 运行 Python 象棋规则引擎，验证走法、将军与自陷将军等约束。<br><sub><i>Validate automatically: GitHub Actions runs the Python Xiangqi engine and checks move legality, check, and self-check.</i></sub>
+3. **更新棋局：** 合法走法写入共享状态，并自动刷新棋盘、最近走棋与玩家统计。<br><sub><i>Update the game: legal moves are committed to the shared state and the board, history, and player stats are regenerated.</i></sub>
 
 发现问题或有改进建议？欢迎 [提交 Issue](https://github.com/Lin-SX/Lin-SX/issues/new)。
-Found a bug or have an idea? Feel free to [open an issue](https://github.com/Lin-SX/Lin-SX/issues/new)!
+<br><sub><i>Found a bug or have an idea? Feel free to [open an issue](https://github.com/Lin-SX/Lin-SX/issues/new).</i></sub>
 <!-- XIANGQI:END -->
 
 ---
