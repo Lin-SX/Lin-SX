@@ -22,33 +22,55 @@ jobs:
           python-version: '3.x'
       - name: Run Xiangqi rules tests
         run: python -m unittest discover -s xiangqi -p 'test_*.py'
-      - name: Validate and apply move
+      - name: Collect open move requests
+        if: github.event_name == 'issues'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const {data} = await github.rest.issues.listForRepo({
+              ...context.repo, state: 'open', per_page: 100, sort: 'created', direction: 'asc'
+            });
+            const queue = data
+              .filter(i => !i.pull_request && i.title.startsWith('Xiangqi move:'))
+              .map(i => ({number: i.number, body: i.body || ''}));
+            fs.writeFileSync('move-queue.json', JSON.stringify(queue));
+      - name: Validate queued moves
         id: validate
         if: github.event_name == 'issues'
-        env:
-          ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           python - <<'PY'
-          import json, os, re, sys
+          import json, re, sys
           from pathlib import Path
           sys.path.insert(0, 'xiangqi')
           from game import initial, apply, render
-          path=Path('state/game.json')
-          s=json.loads(path.read_text()) if path.exists() else initial()
-          m=re.fullmatch(r'\s*xiangqi:\s*([a-i][0-9])-([a-i][0-9])\s*',os.environ.get('ISSUE_BODY',''),re.I)
-          ok=False; message='棋步格式无效。'
-          if m:
-            a,b=m.group(1).lower(),m.group(2).lower()
-            try:
-              apply(s,('abcdefghi'.index(a[0]),int(a[1]),'abcdefghi'.index(b[0]),int(b[1])))
-              path.parent.mkdir(exist_ok=True); path.write_text(json.dumps(s,ensure_ascii=False,indent=2)+'\n')
-              render(s); ok=True; message='合法走法已接受，棋盘已更新。'
-            except ValueError as e: message=str(e)
-          Path('move-result.json').write_text(json.dumps({'accepted':ok,'message':message},ensure_ascii=False))
-          print('accepted='+str(ok).lower()+' message='+message)
+          path = Path('state/game.json')
+          state = json.loads(path.read_text()) if path.exists() else initial()
+          queue = json.loads(Path('move-queue.json').read_text())
+          results = []
+          changed = False
+          for item in queue:
+            match = re.fullmatch(r'\s*xiangqi:\s*([a-i][0-9])-([a-i][0-9])\s*', item['body'], re.I)
+            accepted = False
+            message = '棋步格式无效。'
+            if match:
+              a, b = match.group(1).lower(), match.group(2).lower()
+              try:
+                apply(state, ('abcdefghi'.index(a[0]), int(a[1]), 'abcdefghi'.index(b[0]), int(b[1])))
+                accepted = changed = True
+                message = '合法走法已接受，棋盘已更新。'
+              except ValueError as error:
+                message = str(error)
+            results.append({'number': item['number'], 'accepted': accepted, 'message': message})
+          if changed:
+            path.parent.mkdir(exist_ok=True)
+            path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n')
+            render(state)
+          Path('move-results.json').write_text(json.dumps(results, ensure_ascii=False))
+          print('accepted=' + str(changed).lower())
           PY
-          echo "accepted=$(python -c 'import json;print(str(json.load(open("move-result.json"))["accepted"]).lower())')" >> "$GITHUB_OUTPUT"
-      - name: Generate initial board
+          echo "accepted=$(python -c 'import json;print(str(any(x["accepted"] for x in json.load(open("move-results.json")))).lower())')" >> "$GITHUB_OUTPUT"
+      - name: Generate or refresh board
         if: github.event_name == 'workflow_dispatch'
         run: |
           mkdir -p state
@@ -56,19 +78,25 @@ jobs:
             python -c "import sys,json;sys.path.insert(0,'xiangqi');from game import initial;open('state/game.json','w').write(json.dumps(initial(),ensure_ascii=False,indent=2)+'\n')"
           fi
           python xiangqi/game.py
-      - name: Commit board
+      - name: Commit updated board
         if: steps.validate.outputs.accepted == 'true' || github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state/game.json assets/xiangqi.svg README.md
           git diff --cached --quiet || (git commit -m "Update shared Xiangqi board" && git push)
-      - name: Comment and close move issue
+      - name: Reply to move requests
         if: github.event_name == 'issues'
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
-            const r = JSON.parse(fs.readFileSync('move-result.json', 'utf8'));
-            await github.rest.issues.createComment({...context.repo, issue_number: context.issue.number, body: r.message});
-            await github.rest.issues.update({...context.repo, issue_number: context.issue.number, state: 'closed'});
+            const results = JSON.parse(fs.readFileSync('move-results.json', 'utf8'));
+            for (const result of results) {
+              await github.rest.issues.createComment({
+                ...context.repo, issue_number: result.number, body: result.message
+              });
+              await github.rest.issues.update({
+                ...context.repo, issue_number: result.number, state: 'closed'
+              });
+            }
