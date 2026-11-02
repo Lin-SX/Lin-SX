@@ -72,6 +72,7 @@ def attacks(b, x, y):
             a, d = x + dx, y + dy
             if palace(c, a, d):
                 add(a, d)
+
         # Flying-general line of sight. This is used as an attack relation;
         # legal() deliberately does not model literal king capture.
         dy = -1 if c == "r" else 1
@@ -82,11 +83,13 @@ def attacks(b, x, y):
                     out.append((x, d))
                 break
             d += dy
+
     elif k == "A":
         for dx, dy in ((1, 1), (1, -1), (-1, 1), (-1, -1)):
             a, d = x + dx, y + dy
             if palace(c, a, d):
                 add(a, d)
+
     elif k == "E":
         for dx, dy in ((2, 2), (2, -2), (-2, 2), (-2, -2)):
             a, d = x + dx, y + dy
@@ -94,6 +97,7 @@ def attacks(b, x, y):
             eye_clear = inside(a, d) and b[y + dy // 2][x + dx // 2] is None
             if inside(a, d) and own_side and eye_clear:
                 add(a, d)
+
     elif k == "H":
         for dx, dy, lx, ly in (
             (2, 1, 1, 0), (2, -1, 1, 0), (-2, 1, -1, 0), (-2, -1, -1, 0),
@@ -102,6 +106,7 @@ def attacks(b, x, y):
             a, d = x + dx, y + dy
             if inside(a, d) and b[y + ly][x + lx] is None:
                 add(a, d)
+
     elif k in ("R", "C"):
         for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
             a, d = x + dx, y + dy
@@ -126,6 +131,7 @@ def attacks(b, x, y):
                     break
                 a += dx
                 d += dy
+
     elif k == "P":
         dy = -1 if c == "r" else 1
         add(x, y + dy)
@@ -133,6 +139,7 @@ def attacks(b, x, y):
         if crossed_river:
             add(x - 1, y)
             add(x + 1, y)
+
     return out
 
 
@@ -181,6 +188,7 @@ def apply(s, m):
         raise ValueError("棋局已经结束，当前一方没有合法走法。")
     if m not in moves:
         raise ValueError("该走法不合法，可能已被其他玩家抢先落子。")
+
     x, y, a, d = m
     b = s["board"]
     p = b[y][x]
@@ -206,59 +214,73 @@ def render_board_svg(s, output=None):
     right, bottom = x0 + 8 * cell, y0 + 9 * cell
     status, _ = position_status(b, s["turn"])
 
-    # Compact SVG keeps the profile lightweight while preserving a proper
-    # Xiangqi board: river gap, palaces, coordinates, and wood-style pieces.
+    # Extra footer space keeps the status safely below the bottom pieces.
     svg = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="720" height="815" viewBox="0 0 720 815">',
+        '<svg xmlns="http://www.w3.org/2000/svg" width="720" height="850" viewBox="0 0 720 850">',
         '<defs><linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8e8c6"/><stop offset=".48" stop-color="#e9c98f"/><stop offset="1" stop-color="#d7ad6e"/></linearGradient><radialGradient id="face" cx="34%" cy="28%" r="78%"><stop offset="0" stop-color="#fffdf4"/><stop offset=".58" stop-color="#f3dfb5"/><stop offset="1" stop-color="#d9b878"/></radialGradient><filter id="shadow" x="-35%" y="-35%" width="170%" height="180%"><feDropShadow dx="0" dy="3" stdDeviation="2.4" flood-color="#3e2816" flood-opacity=".38"/></filter><filter id="boardShadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#3b2617" flood-opacity=".24"/></filter>',
         '<style>.grid{stroke:#6d4528;stroke-width:2;fill:none}.coord{font:14px ui-monospace,SFMono-Regular,Consolas,monospace;fill:#6f4728}.river{font:31px STKaiti,KaiTi,"Kaiti SC","Noto Serif CJK SC",serif;fill:#80532f}.piece text{font:700 31px STKaiti,KaiTi,"Kaiti SC","Noto Serif CJK SC",serif;stroke:#f5e6c7;stroke-width:.35;paint-order:stroke fill}.red text{fill:#a51f28}.black text{fill:#24211f}.status{font:650 16px system-ui,sans-serif;fill:#5e3c23}.status2{font:11px system-ui,sans-serif;fill:#7d5a3c}</style>',
         '<g id="black"><circle cy="1.5" r="29" fill="#9e6d38" opacity=".28"/><circle r="27" fill="url(#face)" stroke="#4b433c" stroke-width="3"/><circle r="21.7" fill="none" stroke="#4b433c" stroke-width="1.25" opacity=".82"/><circle cx="-8.5" cy="-10" r="2.1" fill="#4b433c" opacity=".22"/><circle cx="10" cy="8" r="1.5" fill="#4b433c" opacity=".16"/></g><g id="red"><circle cy="1.5" r="29" fill="#9e6d38" opacity=".28"/><circle r="27" fill="url(#face)" stroke="#bd343a" stroke-width="3"/><circle r="21.7" fill="none" stroke="#bd343a" stroke-width="1.25" opacity=".82"/><circle cx="-8.5" cy="-10" r="2.1" fill="#bd343a" opacity=".22"/><circle cx="10" cy="8" r="1.5" fill="#bd343a" opacity=".16"/></g></defs>',
-        '<rect x="25" y="18" width="670" height="770" rx="28" fill="url(#paper)" stroke="#8f5e2f" stroke-width="3" filter="url(#boardShadow)"/><rect x="42" y="35" width="636" height="736" rx="19" fill="none" stroke="#b78248" stroke-width="1.3" opacity=".62"/>',
+        '<rect x="25" y="18" width="670" height="820" rx="28" fill="url(#paper)" stroke="#8f5e2f" stroke-width="3" filter="url(#boardShadow)"/><rect x="42" y="35" width="636" height="792" rx="19" fill="none" stroke="#b78248" stroke-width="1.3" opacity=".62"/>',
     ]
 
-    # Coordinates.
     svg.append('<g class="coord">')
     for x, label in enumerate("ABCDEFGHI"):
         svg.append(f'<text x="{x0 + x * cell}" y="58" text-anchor="middle">{label}</text>')
     for y in range(10):
         svg.append(f'<text x="42" y="{y0 + y * cell + 5}" text-anchor="middle">{y}</text>')
-    svg.append('</g>')
+    svg.append("</g>")
 
-    # Grid as compact path commands.
-    h = ''.join(f'M{x0} {y0 + y * cell}H{right}' for y in range(10))
-    v = f'M{x0} {y0}V{bottom}M{right} {y0}V{bottom}' + ''.join(
-        f'M{x0 + x * cell} {y0}V{y0 + 4 * cell}M{x0 + x * cell} {y0 + 5 * cell}V{bottom}' for x in range(1, 8)
+    h = "".join(f"M{x0} {y0 + y * cell}H{right}" for y in range(10))
+    v = f"M{x0} {y0}V{bottom}M{right} {y0}V{bottom}" + "".join(
+        f"M{x0 + x * cell} {y0}V{y0 + 4 * cell}M{x0 + x * cell} {y0 + 5 * cell}V{bottom}"
+        for x in range(1, 8)
     )
     palace_path = (
-        f'M{x0 + 3 * cell} {y0}L{x0 + 5 * cell} {y0 + 2 * cell}M{x0 + 5 * cell} {y0}L{x0 + 3 * cell} {y0 + 2 * cell}'
-        f'M{x0 + 3 * cell} {y0 + 7 * cell}L{x0 + 5 * cell} {bottom}M{x0 + 5 * cell} {y0 + 7 * cell}L{x0 + 3 * cell} {bottom}'
+        f"M{x0 + 3 * cell} {y0}L{x0 + 5 * cell} {y0 + 2 * cell}"
+        f"M{x0 + 5 * cell} {y0}L{x0 + 3 * cell} {y0 + 2 * cell}"
+        f"M{x0 + 3 * cell} {y0 + 7 * cell}L{x0 + 5 * cell} {bottom}"
+        f"M{x0 + 5 * cell} {y0 + 7 * cell}L{x0 + 3 * cell} {bottom}"
     )
     svg.append(f'<path class="grid" d="{h}{v}{palace_path}"/>')
-    river_y = y0 + 4.5 * cell + 10
-    svg.append(f'<g class="river" text-anchor="middle"><text x="{x0 + 2 * cell}" y="{river_y}" letter-spacing="10">楚 河</text><text x="{x0 + 6 * cell}" y="{river_y}" letter-spacing="10">汉 界</text></g>')
 
-    # Pieces.
+    river_y = y0 + 4.5 * cell + 10
+    svg.append(
+        f'<g class="river" text-anchor="middle">'
+        f'<text x="{x0 + 2 * cell}" y="{river_y}" letter-spacing="10">楚 河</text>'
+        f'<text x="{x0 + 6 * cell}" y="{river_y}" letter-spacing="10">汉 界</text>'
+        f"</g>"
+    )
+
     for y, row in enumerate(b):
         for x, p in enumerate(row):
             if not p:
                 continue
             cx, cy = x0 + x * cell, y0 + y * cell
-            side = 'red' if p[0] == 'r' else 'black'
+            side = "red" if p[0] == "r" else "black"
             char = piece_name(p)[1:]
-            svg.append(f'<g class="piece {side}" transform="translate({cx} {cy})" filter="url(#shadow)"><use href="#{side}"/><text x="0" y="10" text-anchor="middle">{char}</text></g>')
+            svg.append(
+                f'<g class="piece {side}" transform="translate({cx} {cy})" filter="url(#shadow)">'
+                f'<use href="#{side}"/><text x="0" y="10" text-anchor="middle">{char}</text></g>'
+            )
 
-    if status in ('checkmate', 'stalemate'):
-        winner_cn = '黑方' if s['turn'] == 'r' else '红方'
-        winner_en = 'Black' if s['turn'] == 'r' else 'Red'
-        footer_cn, footer_en = f'棋局结束 · {winner_cn}胜', f'Game over · {winner_en} wins'
+    if status in ("checkmate", "stalemate"):
+        winner_cn = "黑方" if s["turn"] == "r" else "红方"
+        winner_en = "Black" if s["turn"] == "r" else "Red"
+        footer_cn, footer_en = f"棋局结束 · {winner_cn}胜", f"Game over · {winner_en} wins"
     else:
-        side_cn = '红方' if s['turn'] == 'r' else '黑方'
-        side_en = 'Red' if s['turn'] == 'r' else 'Black'
-        footer_cn = f'当前回合 · {side_cn}' + (' · 将军' if status == 'check' else '')
-        footer_en = f'Turn · {side_en}' + (' · check' if status == 'check' else '')
-    svg.append(f'<text class="status" x="360" y="752" text-anchor="middle">{footer_cn}</text><text class="status2" x="360" y="771" text-anchor="middle">{footer_en}</text></svg>')
+        side_cn = "红方" if s["turn"] == "r" else "黑方"
+        side_en = "Red" if s["turn"] == "r" else "Black"
+        footer_cn = f"当前回合 · {side_cn}" + (" · 将军" if status == "check" else "")
+        footer_en = f"Turn · {side_en}" + (" · check" if status == "check" else "")
 
-    text = ''.join(svg) + '\n'
+    # Keep both status lines clearly separated from the bottom rank of pieces.
+    svg.append(
+        f'<text class="status" x="360" y="785" text-anchor="middle">{footer_cn}</text>'
+        f'<text class="status2" x="360" y="807" text-anchor="middle">{footer_en}</text>'
+        "</svg>"
+    )
+
+    text = "".join(svg) + "\n"
     output = Path(output) if output else ROOT / "assets/xiangqi-board.svg"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(text, encoding="utf-8")
@@ -275,7 +297,7 @@ def render(s, stats=None):
         "<!-- XIANGQI:START -->",
         '<div align="center">',
         '<img src="assets/xiangqi-board.svg" width="720" alt="当前中国象棋棋盘 · Current Xiangqi board">',
-        '</div>',
+        "</div>",
         "",
     ]
 
@@ -311,6 +333,7 @@ def render(s, stats=None):
         groups = {}
         for x, y, a, d in moves:
             groups.setdefault((x, y), []).append((a, d))
+
         for (x, y), dest in sorted(groups.items(), key=lambda z: (z[0][1], z[0][0])):
             p = b[y][x]
             cn = piece_name(p)[1:]
@@ -318,7 +341,10 @@ def render(s, stats=None):
             links = []
             for a, d in dest:
                 mv = f"{FILES[x]}{y}-{FILES[a]}{d}"
-                url = f"https://github.com/Lin-SX/Lin-SX/issues/new?title={quote('Xiangqi move: ' + mv)}&body={quote('xiangqi: ' + mv)}"
+                url = (
+                    "https://github.com/Lin-SX/Lin-SX/issues/new?"
+                    f"title={quote('Xiangqi move: ' + mv)}&body={quote('xiangqi: ' + mv)}"
+                )
                 links.append(f"[{FILES[a]}{d}]({url})")
             lines.append(f"| **{cn} {FILES[x]}{y}**<br><sub>{en}</sub> | " + " · ".join(links) + " |")
 
@@ -338,9 +364,13 @@ def render(s, stats=None):
             side_en = "Red" if m["by"] == "r" else "Black"
             who_cn = f"@{player}" if player else "历史棋步"
             who_en = f"@{player}" if player else "recorded move"
-            lines.append(f"- **{side_cn}** · {m['from']} → {m['to']} · {who_cn}<br><sub><i>{side_en} · {m['from']} → {m['to']} · {who_en}</i></sub>")
+            lines.append(
+                f"- **{side_cn}** · {m['from']} → {m['to']} · {who_cn}"
+                f"<br><sub><i>{side_en} · {m['from']} → {m['to']} · {who_en}</i></sub>"
+            )
     else:
         lines.append("- 暂无走棋记录<br><sub><i>No moves yet.</i></sub>")
+
     lines += [
         "",
         "</details>",
@@ -360,6 +390,7 @@ def render(s, stats=None):
             lines.append(f"| {i} | [@{safe_player}](https://github.com/{quote(player)}) | {count} |")
     else:
         lines.append("| — | 还没有统计数据<br><sub>No stats yet</sub> | 0 |")
+
     lines += [
         "",
         "</details>",
@@ -379,7 +410,10 @@ def render(s, stats=None):
     rp = ROOT / "README.md"
     old = rp.read_text(encoding="utf-8")
     start, end = "<!-- XIANGQI:START -->", "<!-- XIANGQI:END -->"
-    rp.write_text(old[:old.index(start)] + "\n".join(lines) + old[old.index(end) + len(end):], encoding="utf-8")
+    rp.write_text(
+        old[:old.index(start)] + "\n".join(lines) + old[old.index(end) + len(end):],
+        encoding="utf-8",
+    )
 
 
 def main():
@@ -398,6 +432,7 @@ def main():
     else:
         stats = {}
         statsfile.write_text("{}\n", encoding="utf-8")
+
     render(s, stats)
 
 
