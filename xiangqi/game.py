@@ -296,7 +296,7 @@ def render(s, stats=None):
     lines = [
         "<!-- XIANGQI:START -->",
         '<div align="center">',
-        '<img src="assets/xiangqi-board.svg" width="720" alt="当前中国象棋棋盘 · Current Xiangqi board">',
+        '<img src="assets/xiangqi-board.svg?v={s[\'ply\']}" width="720" alt="当前中国象棋棋盘 · Current Xiangqi board">',
         "</div>",
         "",
     ]
