@@ -7,11 +7,25 @@ Welcome to my GitHub profile.
 欢迎来我的 GitHub 主页下一盘中国象棋！这是一个由 GitHub Issues 和 Actions 驱动的共享棋局。
 
 <!-- XIANGQI:START -->
-![Chinese chess board](assets/xiangqi.svg)
-**当前回合：黑方** · 已走 1 手 · 合法走法 44 种
+棋盘由独立的 SVG 棋子图片组成；每次合法走棋后，GitHub Actions 会根据最新局面重新生成棋盘。
+
+| 坐标 | A | B | C | D | E | F | G | H | I |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **0** | <img src="assets/pieces/bR.svg" width="48" height="48" alt="黑车"> | <img src="assets/pieces/bH.svg" width="48" height="48" alt="黑马"> | <img src="assets/pieces/bE.svg" width="48" height="48" alt="黑象"> | <img src="assets/pieces/bA.svg" width="48" height="48" alt="黑士"> | <img src="assets/pieces/bK.svg" width="48" height="48" alt="黑将"> | <img src="assets/pieces/bA.svg" width="48" height="48" alt="黑士"> | <img src="assets/pieces/bE.svg" width="48" height="48" alt="黑象"> | <img src="assets/pieces/bH.svg" width="48" height="48" alt="黑马"> | <img src="assets/pieces/bR.svg" width="48" height="48" alt="黑车"> |
+| **1** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
+| **2** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bC.svg" width="48" height="48" alt="黑炮"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bC.svg" width="48" height="48" alt="黑炮"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
+| **3** | <img src="assets/pieces/bP.svg" width="48" height="48" alt="黑卒"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bP.svg" width="48" height="48" alt="黑卒"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bP.svg" width="48" height="48" alt="黑卒"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bP.svg" width="48" height="48" alt="黑卒"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/bP.svg" width="48" height="48" alt="黑卒"> |
+| **4** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
+| **5** | <img src="assets/pieces/rP.svg" width="48" height="48" alt="红兵"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
+| **6** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rP.svg" width="48" height="48" alt="红兵"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rP.svg" width="48" height="48" alt="红兵"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rP.svg" width="48" height="48" alt="红兵"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rP.svg" width="48" height="48" alt="红兵"> |
+| **7** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rC.svg" width="48" height="48" alt="红炮"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/rC.svg" width="48" height="48" alt="红炮"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
+| **8** | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> | <img src="assets/pieces/blank.svg" width="48" height="48" alt="空"> |
+| **9** | <img src="assets/pieces/rR.svg" width="48" height="48" alt="红车"> | <img src="assets/pieces/rH.svg" width="48" height="48" alt="红马"> | <img src="assets/pieces/rE.svg" width="48" height="48" alt="红相"> | <img src="assets/pieces/rA.svg" width="48" height="48" alt="红仕"> | <img src="assets/pieces/rK.svg" width="48" height="48" alt="红帅"> | <img src="assets/pieces/rA.svg" width="48" height="48" alt="红仕"> | <img src="assets/pieces/rE.svg" width="48" height="48" alt="红相"> | <img src="assets/pieces/rH.svg" width="48" height="48" alt="红马"> | <img src="assets/pieces/rR.svg" width="48" height="48" alt="红车"> |
+
+**当前回合：黑方** · 已走 1 手
 
 ### 下一步怎么走？
-和 marcizhu 的国际象棋示例一样，下面直接列出当前所有合法走法。**点击「目标位置」就会跳转到预填好棋步的 GitHub Issue 页面**；你只需提交 Issue，不用手动填写内容。
+点击下方任一目标位置，即可跳转到预填好棋步的 GitHub Issue 页面；提交 Issue 后，Actions 会验证棋规并更新上方棋盘。
 
 | 棋子 / 起点 | 可选目标位置（点击即可提交） |
 |:---:|:---|
@@ -35,7 +49,7 @@ Welcome to my GitHub profile.
 ### 最近走棋
 - 红方：a6 → a5
 
-<sub>点击任一目标位置会创建棋步 Issue；GitHub Actions 验证棋规后自动刷新棋盘。多人共享同一棋局。</sub>
+<sub>棋子图片位于 assets/pieces/；棋盘和走法列表均由同一份 state/game.json 自动生成。多人共享同一棋局。</sub>
 <!-- XIANGQI:END -->
 
 ## About
